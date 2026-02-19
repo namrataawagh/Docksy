@@ -30,7 +30,7 @@ export const TrackingParkScreen: React.FC<TrackingParkScreenProps> = ({ onComple
         }
         return current + 1;
       });
-      
+
       // Subtle robot movement
       setRobotOffset(Math.random() * 4 - 2);
     }, 1500);
@@ -40,21 +40,21 @@ export const TrackingParkScreen: React.FC<TrackingParkScreenProps> = ({ onComple
 
   const currentSteps = steps.map((step, index) => ({
     ...step,
-    status: index < activeStep ? 'completed' : index === activeStep ? 'active' : 'pending'
+    status: (index < activeStep ? 'completed' : index === activeStep ? 'active' : 'pending') as 'completed' | 'active' | 'pending'
   }));
 
   return (
     <div className="space-y-4 animate-fade-in">
       <Card className="relative overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-teal-200/20 to-emerald-200/20 rounded-full blur-3xl -mr-16 -mt-16" />
-        
+
         <div className="relative">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h3 className="text-lg font-semibold text-gray-800">Parking in Progress</h3>
               <p className="text-sm text-gray-500">Robot is handling your vehicle</p>
             </div>
-            <div 
+            <div
               className="w-14 h-14 rounded-full bg-gradient-to-br from-teal-400 to-emerald-500 flex items-center justify-center text-white shadow-glow transition-transform duration-300"
               style={{ transform: `translateY(${robotOffset}px)` }}
             >
@@ -99,7 +99,7 @@ export const TrackingParkScreen: React.FC<TrackingParkScreenProps> = ({ onComple
               {activeStep === 4 && 'Parking completed successfully!'}
             </p>
             <div className="mt-2 h-1.5 bg-gray-200/50 rounded-full overflow-hidden">
-              <div 
+              <div
                 className="h-full bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full transition-all duration-500"
                 style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
               />
