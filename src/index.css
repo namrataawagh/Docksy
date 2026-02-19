@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/60 backdrop-blur-md rounded-[20px] border border-white/40;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.06), 
+                -8px -8px 16px rgba(255, 255, 255, 0.8);
+  }
+  
+  .glass-card-sm {
+    @apply bg-white/50 backdrop-blur-sm rounded-[16px] border border-white/30;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.05), 
+                -4px -4px 8px rgba(255, 255, 255, 0.7);
+  }
+  
+  .neu-button {
+    @apply bg-gradient-to-br from-teal-400 to-emerald-500 text-white font-semibold 
+           rounded-[20px] transition-all duration-300 active:scale-95;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.1), 
+                -6px -6px 12px rgba(255, 255, 255, 0.8),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  
+  .neu-button:active {
+    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.15), 
+                inset -4px -4px 8px rgba(255, 255, 255, 0.2);
+  }
+  
+  .neu-button-secondary {
+    @apply bg-white/70 text-gray-700 font-medium rounded-[20px] 
+           transition-all duration-300 active:scale-95 border border-white/50;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.06), 
+                -4px -4px 8px rgba(255, 255, 255, 0.8);
+  }
+  
+  .input-field {
+    @apply w-full bg-white/60 border border-white/50 rounded-[16px] px-4 py-3 
+           text-gray-800 placeholder-gray-400 outline-none transition-all duration-200;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.05), 
+                inset -2px -2px 4px rgba(255, 255, 255, 0.8);
+  }
+  
+  .input-field:focus {
+    @apply border-teal-400/50;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.05), 
+                inset -2px -2px 4px rgba(255, 255, 255, 0.8),
+                0 0 0 3px rgba(20, 184, 166, 0.1);
+  }
+  
+  .step-active {
+    @apply bg-gradient-to-br from-teal-400 to-emerald-500 text-white;
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.4);
+  }
+  
+  .step-completed {
+    @apply bg-teal-500/20 text-teal-700;
+  }
+  
+  .step-pending {
+    @apply bg-gray-200/50 text-gray-400;
+  }
+  
+  .status-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .status-badge-success {
+    @apply bg-emerald-100/80 text-emerald-700 border border-emerald-200/50;
+  }
+  
+  .qr-placeholder {
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(20, 184, 166, 0.05),
+      rgba(20, 184, 166, 0.05) 10px,
+      rgba(20, 184, 166, 0.1) 10px,
+      rgba(20, 184, 166, 0.1) 20px
+    );
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent;
+  }
+  
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+}
